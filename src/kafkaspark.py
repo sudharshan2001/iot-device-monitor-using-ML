@@ -28,5 +28,3 @@ def mongoInsert(dataframe,epoch_id):
     dataframe.write.format("mongo").mode("append").save()
 
 df1.writeStream.foreachBatch(mongoInsert).start().awaitTermination()
-
-# spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0,org.mongodb.spark:mongo-spark-connector_2.12:2.4.1,org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.2 kafkaspark.py
