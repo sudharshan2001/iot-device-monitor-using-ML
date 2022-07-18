@@ -1,5 +1,6 @@
 from pyspark.sql.session import SparkSession  
 from pyspark.sql.functions import *
+
 # import findspark
 # findspark.add_packages('mysql:mysql-connector-java:8.0.11')
 
@@ -11,7 +12,6 @@ spark = SparkSession.builder.appName("kafkaStreaming").master("local[*]")\
 
 spark.sparkContext.setLogLevel("Error")
 
-# df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "localhost:9092").option("subscribe", "workshopkafka").load()
 df = spark \
   .readStream \
   .format("kafka") \
